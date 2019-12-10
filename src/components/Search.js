@@ -21,7 +21,7 @@ const Search = ({ mode, search, setSearch, filterByName }) => {
   };
 
   return (
-    <form
+    <div
       className="search"
       style={mode === "light" ? searchStylesLight : searchStylesDark}
     >
@@ -45,7 +45,7 @@ const Search = ({ mode, search, setSearch, filterByName }) => {
           }
         />
       </div>
-    </form>
+    </div>
   );
 };
 

@@ -6,7 +6,8 @@ import {
   SET_MODE,
   SET_SEARCH,
   FILTER_BY_REGION,
-  FILTER_BY_NAME
+  FILTER_BY_NAME,
+  SET_CURRENT_PAGE
 } from "./constantTypes";
 
 export const fetchStart = () => {
@@ -61,5 +62,12 @@ export const filterByRegion = value => {
 export const filterByName = () => {
   return {
     type: FILTER_BY_NAME
+  };
+};
+
+export const setCurrentPage = number => {
+  return {
+    type: SET_CURRENT_PAGE,
+    payload: number
   };
 };

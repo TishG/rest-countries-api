@@ -1,6 +1,7 @@
 .country-card {
   width: 300px;
-  height: 450px;
+  min-height: 450px;
+  height: 500px;
   border-radius: 4px;
 }
 

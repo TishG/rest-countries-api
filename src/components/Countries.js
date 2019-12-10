@@ -6,7 +6,26 @@ import { fetchCountries } from "../redux/actionCreators";
 //components
 import Country from "./Country";
 
-const Countries = ({ loading, countries, mode, filteredCountries }) => {
+const Countries = ({
+  loading,
+  countries,
+  mode,
+  filteredCountries,
+  fetchCountries,
+  currentPage,
+  countriesPerPage
+}) => {
+  // Logic for displaying todos
+  const indexOfLastCountry = currentPage * countriesPerPage;
+  const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
+  // const currentCountries = filteredCountries.length
+  //   ? filteredCountries.slice(indexOfFirstCountry, indexOfLastCountry)
+  //   : countries.slice(indexOfFirstCountry, indexOfLastCountry);
+
+  if (filteredCountries.length) {
+    countries = filteredCountries;
+  }
+
   const lightModeFont = "hsl(200, 15%, 8%)";
   const darkModeFont = "hsl(0, 0%, 100%)";
   const font =
@@ -14,9 +33,6 @@ const Countries = ({ loading, countries, mode, filteredCountries }) => {
   useEffect(() => {
     fetchCountries();
   }, []);
-  if (filteredCountries.length) {
-    countries = filteredCountries;
-  }
   if (loading)
     return (
       <div style={font} className="loading">
@@ -52,8 +68,14 @@ const mapStateToProps = state => {
     loading: state.loading,
     mode: state.mode,
     countries: state.countries,
-    filteredCountries: state.filteredCountries
+    filteredCountries: state.filteredCountries,
+    currentPage: state.currentPage,
+    countriesPerPage: state.countriesPerPage
   };
 };
 
-export default connect(mapStateToProps)(Countries);
+const mapDispatchToProps = {
+  fetchCountries
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Countries);

@@ -1,0 +1,21 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.pagination li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.25em;
+  border-radius: 0.2em;
+  width: 30px;
+  height: 30px;
+}
+
+.pagination li:hover {
+  cursor: pointer;
+  background-color: limegreen;
+  color: blue;
+}

@@ -5,7 +5,8 @@ import {
   SET_MODE,
   SET_SEARCH,
   FILTER_BY_REGION,
-  FILTER_BY_NAME
+  FILTER_BY_NAME,
+  SET_CURRENT_PAGE
 } from "./constantTypes";
 
 const initialState = {
@@ -14,7 +15,9 @@ const initialState = {
   search: "Search for a country...",
   mode: "dark",
   countries: [],
-  filteredCountries: []
+  filteredCountries: [],
+  currentPage: 1,
+  countriesPerPage: 12
 };
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -44,7 +47,7 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         search: action.payload,
-        region:""
+        region: ""
       };
     case FILTER_BY_REGION:
       return {
@@ -61,6 +64,11 @@ export const rootReducer = (state = initialState, action) => {
             country.name.toLowerCase().indexOf(state.search.toLowerCase()) !==
             -1
         )
+      };
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.payload
       };
     default:
       return state;

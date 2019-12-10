@@ -8,15 +8,7 @@ import MyHeader from "./components/MyHeader";
 import Search from "./components/Search";
 import MySelect from "./components/MySelect";
 import Countries from "./components/Countries";
-
-// ### Neutral
-
-// - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
-// - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
-// - Very Dark Blue (Light Mode Text): hsl(200, 15%, 8%)
-// - Dark Gray (Light Mode Input): hsl(0, 0%, 52%)
-// - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
-// - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
+// import Pagination from "./components/Pagination";
 
 const App = ({ mode, countries, fetchCountries }) => {
   const mainBackgroundColorLight = {
@@ -30,7 +22,12 @@ const App = ({ mode, countries, fetchCountries }) => {
     fetchCountries();
   }, []);
   return (
-    <div className="app">
+    <div
+      className="app"
+      style={
+        mode === "light" ? mainBackgroundColorLight : mainBackgroundColorDark
+      }
+    >
       <MyHeader />
       <main
         style={
@@ -41,6 +38,7 @@ const App = ({ mode, countries, fetchCountries }) => {
           <Search />
           <MySelect />
         </section>
+        {/* <Pagination /> */}
         <Countries countries={countries} />
       </main>
     </div>
