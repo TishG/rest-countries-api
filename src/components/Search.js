@@ -2,7 +2,7 @@ import React from "react";
 import "./Search.css";
 import { connect } from "react-redux";
 
-const Search = ({ mode }) => {
+const Search = ({ mode, search }) => {
   const searchStylesLight = {
     backgroundColor: "hsl(0, 0%, 100%)",
     color: "hsl(200, 15%, 8%)",
@@ -19,10 +19,7 @@ const Search = ({ mode }) => {
       className="search"
       style={mode === "light" ? searchStylesLight : searchStylesDark}
     >
-      <div
-        className="input-container"
-        /* style={mode === "light" ? searchStylesLight : searchStylesDark} */
-      >
+      <div className="input-container">
         <ion-icon
           name="search"
           style={
@@ -31,7 +28,15 @@ const Search = ({ mode }) => {
               : { color: searchStylesDark }
           }
         ></ion-icon>
-        <input type="text" placeholder="Search for a country..." />
+        <input
+          type="text"
+          value={search}
+          style={
+            mode === "light"
+              ? { color: searchStylesLight.color }
+              : { color: searchStylesDark.color }
+          }
+        />
       </div>
     </form>
   );
@@ -39,7 +44,8 @@ const Search = ({ mode }) => {
 
 const mapStateToProps = state => {
   return {
-    mode: state.mode
+    mode: state.mode,
+    search: state.search
   };
 };
 

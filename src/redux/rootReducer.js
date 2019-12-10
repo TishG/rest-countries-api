@@ -3,9 +3,9 @@ import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE } from "./constantTypes";
 const initialState = {
   loading: false,
   error: "",
-  search: "",
+  search: "Search for a country...",
   filter: "",
-  mode:"dark",
+  mode: "dark",
   countries: []
 };
 export const rootReducer = (state = initialState, action) => {

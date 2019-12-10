@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { fetchCountries } from "./redux/actionCreators";
 
 //components
-import Header from "./components/Header";
+import MyHeader from "./components/MyHeader";
 import Search from "./components/Search";
+import MySelect from "./components/MySelect";
 
 // ### Neutral
 
@@ -30,8 +31,8 @@ const App = ({ loading, fetchCountries, countries, mode }) => {
     fetchCountries();
   }, []);
   return (
-    <div className="App">
-      <Header />
+    <div className="app">
+      <MyHeader />
       <main
         style={
           mode === "light" ? mainBackgroundColorLight : mainBackgroundColorDark
@@ -39,6 +40,7 @@ const App = ({ loading, fetchCountries, countries, mode }) => {
       >
         <section className="app-search-container">
           <Search />
+          <MySelect />
         </section>
       </main>
     </div>

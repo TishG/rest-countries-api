@@ -1,5 +1,9 @@
-.App main {
+.app main {
   padding: 2em;
-  /* background-color: orange; */
   height: calc(100vh - 85.38px);
+}
+
+.app .app-search-container {
+  display: flex;
+  justify-content: space-between;
 }

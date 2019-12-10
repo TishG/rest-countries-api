@@ -1,8 +1,8 @@
 import React from "react";
-import "./Header.css";
+import "./MyHeader.css";
 import { connect } from "react-redux";
 
-const Header = ({ mode }) => {
+const MyHeader = ({ mode }) => {
   const headerStylesLight = {
     backgroundColor: "hsl(0, 0%, 100%)",
     color: "hsl(200, 15%, 8%)",
@@ -11,7 +11,7 @@ const Header = ({ mode }) => {
   const headerStylesDark = {
     backgroundColor: "hsl(209, 23%, 22%)",
     color: "hsl(0, 0%, 100%)",
-    boxShadow: "0px 2px 3px rgba(0,0,0,0.8)"
+    boxShadow: "0px 2px 3px rgba(0,0,0, 0.7)"
   };
 
   return (
@@ -26,7 +26,7 @@ const Header = ({ mode }) => {
           style={
             mode === "light"
               ? { color: "rgb(255,165,0)" }
-              : { color: "rgb(255,165,0)" }
+              : { color: headerStylesDark }
           }
         ></ion-icon>
         <p>Dark Mode</p>
@@ -43,4 +43,4 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(MyHeader);
