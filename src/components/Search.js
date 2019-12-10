@@ -1,8 +1,9 @@
 import React from "react";
 import "./Search.css";
 import { connect } from "react-redux";
+import { setSearch } from "../redux/actionCreators";
 
-const Search = ({ mode, search }) => {
+const Search = ({ mode, search, setSearch }) => {
   const searchStylesLight = {
     backgroundColor: "hsl(0, 0%, 100%)",
     color: "hsl(200, 15%, 8%)",
@@ -25,12 +26,13 @@ const Search = ({ mode, search }) => {
           style={
             mode === "light"
               ? { color: searchStylesLight.color }
-              : { color: searchStylesDark }
+              : { color: searchStylesDark.color }
           }
         ></ion-icon>
         <input
           type="text"
           value={search}
+          onChange={e => setSearch(e.target.value)}
           style={
             mode === "light"
               ? { color: searchStylesLight.color }
@@ -49,6 +51,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  setSearch
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

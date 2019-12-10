@@ -1,0 +1,25 @@
+.country-card {
+  width: 300px;
+  height: 450px;
+  border-radius: 4px;
+}
+
+.country-card img {
+  width: inherit;
+  height: 200px;
+  border-radius: 4px 4px 0px 0px;
+}
+
+.card-bottom {
+  padding: 2em;
+}
+
+.card-bottom h1 {
+  margin-right: 0.4em;
+  font-size: 1.5em;
+}
+
+.card-bottom span {
+  margin-right: 0.4em;
+  font-weight: 700;
+}

@@ -2,7 +2,9 @@ import axios from "axios";
 import {
   FETCH_START,
   FETCH_SUCCESS,
-  FETCH_FAILURE
+  FETCH_FAILURE,
+  SET_MODE,
+  SET_SEARCH
 } from "./constantTypes";
 
 export const fetchStart = () => {
@@ -11,7 +13,7 @@ export const fetchStart = () => {
   };
 };
 
-export const fetchSuccess = (data) => {
+export const fetchSuccess = data => {
   return {
     type: FETCH_SUCCESS,
     payload: data
@@ -26,8 +28,23 @@ export const fetchFailure = err => {
 };
 
 export const fetchCountries = () => dispatch => {
-    dispatch(fetchStart());
-    axios.get('https://restcountries.eu/rest/v2/all')
+  dispatch(fetchStart());
+  axios
+    .get("https://restcountries.eu/rest/v2/all")
     .then(res => dispatch(fetchSuccess(res.data)))
-    .catch(err => dispatch(fetchFailure(err.message)))
-}
+    .catch(err => dispatch(fetchFailure(err.message)));
+};
+
+export const setMode = mode => {
+  return {
+    type: SET_MODE,
+    payload: mode
+  };
+};
+
+export const setSearch = value => {
+  return {
+    type: SET_SEARCH,
+    payload: value
+  };
+};

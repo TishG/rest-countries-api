@@ -1,9 +1,11 @@
 .app main {
   padding: 2em;
-  height: calc(100vh - 85.38px);
+  min-height: calc(100vh - 85.38px);
 }
 
-.app .app-search-container {
-  display: flex;
-  justify-content: space-between;
+@media (min-width: 900px) {
+  .app .app-search-container {
+    display: flex;
+    justify-content: space-between;
+  }
 }

@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+.header .mode:hover {
+  cursor: pointer;
+}
+
 .header .mode p {
   margin-left: 0.5em;
 }

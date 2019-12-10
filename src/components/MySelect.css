@@ -1,6 +1,7 @@
 .my-select {
   border: none;
   width: 250px;
+  height: 52.5px;
   border-radius: 2px;
   padding-left: 1em;
 }

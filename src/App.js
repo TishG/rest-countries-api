@@ -7,6 +7,7 @@ import { fetchCountries } from "./redux/actionCreators";
 import MyHeader from "./components/MyHeader";
 import Search from "./components/Search";
 import MySelect from "./components/MySelect";
+import Countries from "./components/Countries";
 
 // ### Neutral
 
@@ -17,9 +18,7 @@ import MySelect from "./components/MySelect";
 // - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
 // - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
 
-const App = ({ loading, fetchCountries, countries, mode }) => {
-  console.log(loading);
-  console.log(countries);
+const App = ({ loading, fetchCountries, mode, countries }) => {
   const mainBackgroundColorLight = {
     backgroundColor: "hsl(0, 0%, 98%)"
   };
@@ -42,6 +41,8 @@ const App = ({ loading, fetchCountries, countries, mode }) => {
           <Search />
           <MySelect />
         </section>
+        <Countries countries={countries} />
+        {/* <Countries /> */}
       </main>
     </div>
   );
@@ -61,3 +62,4 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+// export default connect(mapStateToProps)(App);

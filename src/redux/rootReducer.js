@@ -1,4 +1,10 @@
-import { FETCH_START, FETCH_SUCCESS, FETCH_FAILURE } from "./constantTypes";
+import {
+  FETCH_START,
+  FETCH_SUCCESS,
+  FETCH_FAILURE,
+  SET_MODE,
+  SET_SEARCH
+} from "./constantTypes";
 
 const initialState = {
   loading: false,
@@ -26,6 +32,16 @@ export const rootReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload
+      };
+    case SET_MODE:
+      return {
+        ...state,
+        mode: action.payload
+      };
+    case SET_SEARCH:
+      return {
+        ...state,
+        search: action.payload
       };
     default:
       return state;
