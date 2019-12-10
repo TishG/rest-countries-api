@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.header .mode {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header .mode p {
+  margin-left: 0.5em;
+}

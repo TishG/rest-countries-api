@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
+import { connect } from "react-redux";
+import { fetchCountries } from "./redux/actionCreators";
 
-function App() {
+//components
+import Header from "./components/Header";
+
+const App = ({ loading, fetchCountries, countries }) => {
+  console.log(loading);
+  console.log(countries);
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    loading: state.loading,
+    countries: state.countries
+  };
+};
+
+const mapDispatchToProps = {
+  fetchCountries
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
