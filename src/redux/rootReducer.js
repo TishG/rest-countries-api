@@ -3,7 +3,9 @@ import {
   FETCH_SUCCESS,
   FETCH_FAILURE,
   SET_MODE,
-  SET_SEARCH
+  SET_SEARCH,
+  FILTER_BY_REGION,
+  FILTER_BY_NAME
 } from "./constantTypes";
 
 const initialState = {
@@ -12,7 +14,8 @@ const initialState = {
   search: "Search for a country...",
   filter: "",
   mode: "dark",
-  countries: []
+  countries: [],
+  filteredCountries: []
 };
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -42,6 +45,22 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         search: action.payload
+      };
+    case FILTER_BY_REGION:
+      return {
+        ...state,
+        filteredCountries: state.countries.filter(
+          country => country.region === action.payload
+        )
+      };
+    case FILTER_BY_NAME:
+      return {
+        ...state,
+        filteredCountries: state.countries.filter(
+          country =>
+            country.name.toLowerCase().indexOf(state.search.toLowerCase()) !==
+            -1
+        )
       };
     default:
       return state;

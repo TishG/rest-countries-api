@@ -18,7 +18,7 @@ import Countries from "./components/Countries";
 // - Very Light Gray (Light Mode Background): hsl(0, 0%, 98%)
 // - White (Dark Mode Text & Light Mode Elements): hsl(0, 0%, 100%)
 
-const App = ({ loading, fetchCountries, mode, countries }) => {
+const App = ({ mode, countries, fetchCountries }) => {
   const mainBackgroundColorLight = {
     backgroundColor: "hsl(0, 0%, 98%)"
   };
@@ -42,7 +42,6 @@ const App = ({ loading, fetchCountries, mode, countries }) => {
           <MySelect />
         </section>
         <Countries countries={countries} />
-        {/* <Countries /> */}
       </main>
     </div>
   );
@@ -52,14 +51,11 @@ const mapStateToProps = state => {
   return {
     loading: state.loading,
     countries: state.countries,
-    mode: state.mode,
-    countries: state.countries
+    mode: state.mode
   };
 };
 
 const mapDispatchToProps = {
   fetchCountries
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-// export default connect(mapStateToProps)(App);

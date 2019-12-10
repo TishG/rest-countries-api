@@ -30,7 +30,7 @@ const Country = ({ image, name, population, region, capital, mode }) => {
         </p>
         <p>
           <span>Capital:</span>
-          {capital}
+          {capital === null || undefined ? "N/A" : capital}
         </p>
       </div>
     </div>

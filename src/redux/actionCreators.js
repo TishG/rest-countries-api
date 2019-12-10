@@ -4,7 +4,9 @@ import {
   FETCH_SUCCESS,
   FETCH_FAILURE,
   SET_MODE,
-  SET_SEARCH
+  SET_SEARCH,
+  FILTER_BY_REGION,
+  FILTER_BY_NAME
 } from "./constantTypes";
 
 export const fetchStart = () => {
@@ -46,5 +48,18 @@ export const setSearch = value => {
   return {
     type: SET_SEARCH,
     payload: value
+  };
+};
+
+export const filterByRegion = value => {
+  return {
+    type: FILTER_BY_REGION,
+    payload: value
+  };
+};
+
+export const filterByName = () => {
+  return {
+    type: FILTER_BY_NAME
   };
 };

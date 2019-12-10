@@ -6,3 +6,13 @@
   justify-items: center;
   align-items: flex-start;
 }
+
+.no-data {
+  text-align: center;
+  margin-top: 20%;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 20%;
+}

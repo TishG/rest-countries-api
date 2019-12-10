@@ -1,9 +1,9 @@
 import React from "react";
 import "./Search.css";
 import { connect } from "react-redux";
-import { setSearch } from "../redux/actionCreators";
+import { setSearch, filterByName } from "../redux/actionCreators";
 
-const Search = ({ mode, search, setSearch }) => {
+const Search = ({ mode, search, setSearch, filterByName }) => {
   const searchStylesLight = {
     backgroundColor: "hsl(0, 0%, 100%)",
     color: "hsl(200, 15%, 8%)",
@@ -13,6 +13,11 @@ const Search = ({ mode, search, setSearch }) => {
     backgroundColor: "hsl(209, 23%, 22%)",
     color: "hsl(0, 0%, 100%)",
     boxShadow: "0px 2px 3px rgba(0,0,0,0.8)"
+  };
+
+  const handleChange = e => {
+    setSearch(e.target.value);
+    filterByName(search);
   };
 
   return (
@@ -32,7 +37,7 @@ const Search = ({ mode, search, setSearch }) => {
         <input
           type="text"
           value={search}
-          onChange={e => setSearch(e.target.value)}
+          onChange={handleChange}
           style={
             mode === "light"
               ? { color: searchStylesLight.color }
@@ -52,7 +57,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  setSearch
+  setSearch,
+  filterByName
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
