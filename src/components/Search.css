@@ -1,6 +1,7 @@
 .search {
   padding: 1em;
   max-width: 500px;
+  max-height: 52.5px;
   border-radius: 2px;
   margin-bottom: 0.5em;
 }
@@ -8,6 +9,7 @@
 .search .input-container {
   width: inherit;
   display: flex;
+  box-sizing: border-box;
 }
 
 .search .input-container ion-icon {

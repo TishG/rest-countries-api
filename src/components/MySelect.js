@@ -3,7 +3,7 @@ import "./MySelect.css";
 import { connect } from "react-redux";
 import { filterByRegion } from "../redux/actionCreators";
 
-const MySelect = ({ mode, filterByRegion}) => {
+const MySelect = ({ mode, filterByRegion }) => {
   const mySelectStylesLight = {
     backgroundColor: "hsl(0, 0%, 100%)",
     color: "hsl(200, 15%, 8%)",
@@ -25,7 +25,7 @@ const MySelect = ({ mode, filterByRegion}) => {
     >
       <option value="">Filter by Region</option>
       <option value="Africa">Africa</option>
-      <option value="America">Americas</option>
+      <option value="Americas">Americas</option>
       <option value="Asia">Asia</option>
       <option value="Europe">Europe</option>
       <option value="Oceania">Oceania</option>

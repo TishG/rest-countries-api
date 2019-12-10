@@ -12,7 +12,6 @@ const initialState = {
   loading: false,
   error: "",
   search: "Search for a country...",
-  filter: "",
   mode: "dark",
   countries: [],
   filteredCountries: []
@@ -44,7 +43,8 @@ export const rootReducer = (state = initialState, action) => {
     case SET_SEARCH:
       return {
         ...state,
-        search: action.payload
+        search: action.payload,
+        region:""
       };
     case FILTER_BY_REGION:
       return {
