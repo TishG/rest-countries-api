@@ -5,7 +5,7 @@ const initialState = {
   error: "",
   search: "",
   filter: "",
-  mode:"light",
+  mode:"dark",
   countries: []
 };
 export const rootReducer = (state = initialState, action) => {
