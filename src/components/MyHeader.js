@@ -35,7 +35,7 @@ const MyHeader = ({ mode, setMode }) => {
               : { color: headerStylesDark.color }
           }
         ></ion-icon>
-        <p>Dark Mode</p>
+        <p>{mode === "light" ? "Light" : "Dark"} Mode</p>
       </div>
     </header>
   );

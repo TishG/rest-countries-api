@@ -34,10 +34,10 @@ const App = ({ mode, countries, fetchCountries }) => {
           mode === "light" ? mainBackgroundColorLight : mainBackgroundColorDark
         }
       >
-        <section className="app-search-container">
+        <div className="app-search-container">
           <Search />
           <MySelect />
-        </section>
+        </div>
         {/* <Pagination /> */}
         <Countries countries={countries} />
       </main>

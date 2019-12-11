@@ -19,6 +19,7 @@ const MySelect = ({ mode, filterByRegion }) => {
     <select
       className="my-select"
       name="regions"
+      title="regions"
       id="regions"
       onChange={e => filterByRegion(e.target.value)}
       style={mode === "light" ? mySelectStylesLight : mySelectStylesDark}

@@ -37,6 +37,7 @@ const Search = ({ mode, search, setSearch, filterByName }) => {
         <input
           type="text"
           value={search}
+          title="country"
           onChange={handleChange}
           style={
             mode === "light"

@@ -6,6 +6,10 @@
   padding: 0 60px;
 }
 
+.header h1 {
+  font-size: 1.5em;
+}
+
 .header .mode {
   display: flex;
   flex-direction: row;
@@ -18,4 +22,15 @@
 
 .header .mode p {
   margin-left: 0.5em;
+  font-size: 0.8em;
+}
+
+@media (min-width: 700px) {
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .header .mode p {
+    font-size: 1em;
+  }
 }
