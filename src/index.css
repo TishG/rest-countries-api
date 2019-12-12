@@ -10,3 +10,11 @@ html {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
+
+.link:focus,
+.link:hover,
+.link:visited,
+.link:link,
+.link:active {
+  text-decoration: none;
+}

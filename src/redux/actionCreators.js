@@ -7,7 +7,8 @@ import {
   SET_SEARCH,
   FILTER_BY_REGION,
   FILTER_BY_NAME,
-  SET_CURRENT_PAGE
+  SET_CURRENT_PAGE,
+  SET_SELECTED_COUNTRY,
 } from "./constantTypes";
 
 export const fetchStart = () => {
@@ -71,3 +72,11 @@ export const setCurrentPage = number => {
     payload: number
   };
 };
+
+export const setSelectedCountry = name => {
+  return {
+    type: SET_SELECTED_COUNTRY,
+    payload: name
+  };
+};
+

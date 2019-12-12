@@ -1,23 +1,44 @@
 import React from "react";
-import "./Country.css";
+import { Link, useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import { setSelectedCountry } from "../redux/actionCreators";
 
-const Country = ({ image, name, population, region, capital, mode }) => {
-  const cardStylesLight = {
-    backgroundColor: "hsl(0, 0%, 100%)",
-    color: "hsl(200, 15%, 8%)",
-    boxShadow: "0px 2px 3px #eee"
-  };
-  const cardStylesDark = {
-    backgroundColor: "hsl(207, 26%, 17%)",
-    color: "hsl(0, 0%, 100%)",
-    boxShadow: "0px 2px 3px rgba(0,0,0,0.8)"
+//styles
+import "./Country.css";
+const cardStylesLight = {
+  backgroundColor: "hsl(0, 0%, 100%)",
+  color: "hsl(200, 15%, 8%)",
+  boxShadow: "0px 2px 3px #eee"
+};
+const cardStylesDark = {
+  backgroundColor: "hsl(207, 26%, 17%)",
+  color: "hsl(0, 0%, 100%)",
+  boxShadow: "0px 2px 3px rgba(0,0,0,0.8)"
+};
+
+const Country = ({
+  image,
+  name,
+  population,
+  region,
+  capital,
+  mode,
+  setSelectedCountry
+}) => {
+  const history = useHistory();
+  const handleClick = () => {
+    setSelectedCountry(name);
+    history.push(`/country/${name}`);
   };
   return (
     <div
+      onClick={handleClick}
       className="country-card"
       style={mode === "light" ? cardStylesLight : cardStylesDark}
     >
-      <img src={image} alt="name" />
+      <div className="img-container">
+        <img src={image} alt="name" />
+      </div>
       <div className="card-bottom">
         <h1>{name}</h1>
         <p>
@@ -37,4 +58,12 @@ const Country = ({ image, name, population, region, capital, mode }) => {
   );
 };
 
-export default Country;
+const mapStateToProps = () => {
+  return {};
+};
+
+const mapDispatchToProps = {
+  setSelectedCountry
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Country);

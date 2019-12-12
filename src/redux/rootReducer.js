@@ -6,7 +6,8 @@ import {
   SET_SEARCH,
   FILTER_BY_REGION,
   FILTER_BY_NAME,
-  SET_CURRENT_PAGE
+  SET_CURRENT_PAGE,
+  SET_SELECTED_COUNTRY
 } from "./constantTypes";
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
   mode: "dark",
   countries: [],
   filteredCountries: [],
+  selectedCountry: null,
   currentPage: 1,
   countriesPerPage: 12
 };
@@ -69,6 +71,13 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         currentPage: action.payload
+      };
+    case SET_SELECTED_COUNTRY:
+      return {
+        ...state,
+        selectedCountry: state.countries.find(
+          country => country.name === action.payload
+        )
       };
     default:
       return state;

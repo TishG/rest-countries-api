@@ -1,0 +1,47 @@
+.country-details,
+.no-country-selected {
+  min-height: calc(100vh - 85.38px);
+  width: 100%;
+  padding: 3em 2em;
+}
+
+.country-details .back-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 90px;
+  align-items: center;
+  border-radius: 2px;
+  padding: 0.5em 1em;
+  border: 0;
+  font-size: 1em;
+  margin-bottom: 2em;
+}
+
+.country-details .flag {
+  width: 500px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.back-btn ion-icon {
+  padding-right: 0.5em;
+}
+
+.country-details ul {
+  display: flex;
+  list-style-type: none;
+  position: relative;
+  left: -2.5em;
+}
+
+.country-details li {
+  margin-left: 0.5em;
+}
+
+@media (min-width: 900px) {
+  .details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

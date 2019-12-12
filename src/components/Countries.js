@@ -15,6 +15,7 @@ const Countries = ({
   currentPage,
   countriesPerPage
 }) => {
+  console.log(countries);
   // Logic for displaying todos
   const indexOfLastCountry = currentPage * countriesPerPage;
   const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;

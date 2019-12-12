@@ -36,8 +36,8 @@ const Search = ({ mode, search, setSearch, filterByName }) => {
         ></ion-icon>
         <input
           type="text"
-          value={search}
           title="country"
+          placeholder="Search for a country..."
           onChange={handleChange}
           style={
             mode === "light"

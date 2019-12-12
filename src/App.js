@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
-import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchCountries } from "./redux/actionCreators";
 
 //components
 import MyHeader from "./components/MyHeader";
-import Search from "./components/Search";
-import MySelect from "./components/MySelect";
-import Countries from "./components/Countries";
+import Home from "./routes/Home";
+import CountryDetails from "./routes/CountryDetails";
+
 // import Pagination from "./components/Pagination";
 
-const App = ({ mode, countries, fetchCountries }) => {
+const App = ({ mode, fetchCountries }) => {
   const mainBackgroundColorLight = {
     backgroundColor: "hsl(0, 0%, 98%)"
   };
@@ -22,26 +22,20 @@ const App = ({ mode, countries, fetchCountries }) => {
     fetchCountries();
   }, []);
   return (
-    <div
-      className="app"
-      style={
-        mode === "light" ? mainBackgroundColorLight : mainBackgroundColorDark
-      }
-    >
-      <MyHeader />
-      <main
+    <Router>
+      <div
+        className="app"
         style={
           mode === "light" ? mainBackgroundColorLight : mainBackgroundColorDark
         }
       >
-        <div className="app-search-container">
-          <Search />
-          <MySelect />
-        </div>
-        {/* <Pagination /> */}
-        <Countries countries={countries} />
-      </main>
-    </div>
+        <MyHeader />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/country/:name" component={CountryDetails} />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
