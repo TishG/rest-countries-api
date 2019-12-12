@@ -48,33 +48,53 @@ const CountryDetails = ({ mode, selectedCountry, clearSelectedCountry }) => {
           <img src={c.flag} alt="" className="flag" />
           <div className="info">
             <h1>{c.name}</h1>
-            <div className="info-left">
-              <p>Native Name: {c.nativeName} </p>
-              <p>Population: {c.population}</p>
-              <p>Region: {c.region}</p>
-              <p>Sub Region: {c.subregion}</p>
-              <p>Capital: {c.capital}</p>
-            </div>
-            <div className="info-right">
-              <p>Top Level Domain: {c.topLevelDomain}</p>
-              <ul>
-                <span>Currencies:</span>
-                {c.currencies.map(name => (
-                  <li key={name.code}>{name.name}</li>
-                ))}
-              </ul>
-              <ul>
-                <span>Languages:</span>
-                {c.languages.map(lang => (
-                  <li key={lang.name}>{lang.name}</li>
-                ))}
-              </ul>
+            <div className="flex-row">
+              <div className="info-left">
+                <p>
+                  <span className="text-bold">Native Name:</span> {c.nativeName}{" "}
+                </p>
+                <p>
+                  <span className="text-bold">Population:</span> {c.population}
+                </p>
+                <p>
+                  <span className="text-bold">Region:</span> {c.region}
+                </p>
+                <p>
+                  <span className="text-bold">Sub Region:</span> {c.subregion}
+                </p>
+                <p>
+                  <span className="text-bold">Capital:</span> {c.capital}
+                </p>
+              </div>
+              <div className="info-right">
+                <p>
+                  <span className="text-bold">Top Level Domain:</span>{" "}
+                  {c.topLevelDomain}
+                </p>
+                <ul>
+                  <span className="text-bold">Currencies:</span>
+                  {c.currencies.map(name => (
+                    <li key={name.code}>{name.name}</li>
+                  ))}
+                </ul>
+                <ul>
+                  <span className="text-bold">Languages:</span>
+                  {c.languages.map(lang => (
+                    <li key={lang.name}>{lang.name}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
             <div className="tags">
               <ul>
-                <span>Border Countries:</span>
+                <span className="text-bold">Border Countries:</span>
                 {c.borders.map(border => (
-                  <li key={border}>{border}</li>
+                  <li
+                    style={mode === "light" ? btnLight : btnDark}
+                    key={border}
+                  >
+                    {border}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -94,7 +114,7 @@ const CountryDetails = ({ mode, selectedCountry, clearSelectedCountry }) => {
       >
         <ion-icon name="arrow-back"></ion-icon>Back{" "}
       </button>{" "}
-      Got nothing for ya!
+      No country selected, please try again.
     </div>
   );
 };

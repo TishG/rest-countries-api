@@ -18,3 +18,18 @@ html {
 .link:active {
   text-decoration: none;
 }
+
+.text-bold {
+  font-weight: 700;
+}
+
+.search,
+.my-select {
+  border: 1px solid transparent;
+}
+
+.back-button:hover,
+.search:hover,
+.my-select:hover {
+  border: 1px solid limegreen;
+}

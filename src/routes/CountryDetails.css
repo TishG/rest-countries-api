@@ -5,7 +5,8 @@
   padding: 3em 2em;
 }
 
-.country-details .back-btn {
+.country-details .back-btn,
+.no-country-selected .back-btn {
   display: flex;
   justify-content: space-between;
   width: 90px;
@@ -15,12 +16,18 @@
   border: 0;
   font-size: 1em;
   margin-bottom: 2em;
+  border: 1px solid transparent;
+}
+
+.back-btn:hover {
+  cursor: pointer;
+  border: 1px solid limegreen;
 }
 
 .country-details .flag {
-  width: 500px;
-  height: 300px;
+  width: 400px;
   object-fit: cover;
+  max-height: 300px;
 }
 
 .back-btn ion-icon {
@@ -34,6 +41,17 @@
   left: -2.5em;
 }
 
+.tags ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tags li {
+  padding: 0.2em 0.6em;
+  border-radius: 2px;
+}
+
 .country-details li {
   margin-left: 0.5em;
 }
@@ -43,5 +61,18 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+  }
+  .country-details .flag {
+    width: 500px;
+  }
+  .flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .flex-row .info-left {
+    margin-right: 3em;
   }
 }
